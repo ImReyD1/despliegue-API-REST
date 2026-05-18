@@ -1,7 +1,7 @@
 const express = require("express"); // require -> commonJS
 const crypto = require("node:crypto");
 const path = require("node:path");
-// const cors = require("cors");
+const cors = require("cors");
 
 const moviesPath = path.join(__dirname, "movies.json");
 const movies = require(moviesPath);
