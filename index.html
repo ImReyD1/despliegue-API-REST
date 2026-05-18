@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        font-family: sans-serif;
+      }
+      main {
+        display: grid;
+        gap: 1rem;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      }
+      article {
+        border: 1px solid black;
+        padding: 1rem;
+      }
+    </style>
+    <script type="module">
+      fetch("'http.localhost:1234/movies")
+        .then((res) => res.json())
+        .then((movies) => {
+          const html = movies
+            .map((movie) => {
+              return `
+                    <article data-id="${movie.id}">
+                        <h2>${movie.title}</h2>
+                        <p>${movie.year}</p>
+                    </article>
+                    `;
+            })
+            .join("");
+          document.querySelector("main").innerHTML = html;
+        })
+        .catch((err) => console.error(err));
+    </script>
+  </head>
+  <body>
+    <main></main>
+  </body>
+</html>
