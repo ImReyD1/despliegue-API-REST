@@ -16,6 +16,7 @@
   "dependencies": {
     "cors": "2.8.5",
     "express": "5.2.1",
+    "mongodb": "7.2.0",
     "node": "^26.0.0",
     "standard": "17.1.2",
     "zod": "4.4.3"
